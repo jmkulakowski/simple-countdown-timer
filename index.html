@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Simple Countdown Timer</title>
+
+<style>
+  #output {
+    width: 300px;
+    margin: 50px auto;
+	font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+    font-size: 100px;
+    color: #333;
+    /* border: 2px solid #333; */
+  }
+</style>
+
+<p id="output"></p>
+
+<script>
+// Reference html elements
+var output = document.querySelector("#output");
+
+// Set timer
+var timer = 5;
+
+// Display timer
+output.innerHTML = timer;
+
+// Initialize coundown function
+var countDown = null;
+
+// Count down and update timer every one-hundreth of a second
+countDown = window.setInterval(function() {
+  if(timer > 0.01) {
+    timer -= 0.01;                       // Decrement timer by one hundreth
+    output.innerHTML = timer.toFixed(2); // Output timer - limit to 2 decimals
+    console.log("Running: " + timer);
+  }
+  else {
+    // Destroy the countdown after counter reaches 0
+    clearInterval(countDown);
+    console.log("destroyed");
+  }
+}, 10);
+
+</script>
