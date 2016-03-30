@@ -33,7 +33,7 @@ var countDown = null;
 countDown = window.setInterval(function() {
   if(timer > 0.01) {
     timer -= 0.01;  			  // Decrement timer by one hundreth
-    output.innerHTML = timer.toFixed(2);  // Output timer - limit to 2 decimals
+    output.innerHTML = timer.toFixed(2);  // Output timer limiting to 2 decimals
     console.log("Running: " + timer);
   }
   else {
